@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chuhsing.com/chushing/2024/07/20/Git%E5%A4%9A%E4%BA%BA%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/</loc>
+    
+    <lastmod>2024-08-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chuhsing.com/chushing/2024/08/24/%E9%B8%A1%E5%B0%BE%E9%85%92%E6%8C%87%E5%8D%97/</loc>
     
     <lastmod>2024-08-27</lastmod>
@@ -110,6 +119,20 @@
 
   
   <url>
+    <loc>https://chuhsing.com/tags/git/</loc>
+    <lastmod>2024-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/gitflow/</loc>
+    <lastmod>2024-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://chuhsing.com/tags/hexo/</loc>
     <lastmod>2024-08-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -139,13 +162,6 @@
   
   <url>
     <loc>https://chuhsing.com/tags/blog/</loc>
-    <lastmod>2024-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/git/</loc>
     <lastmod>2024-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

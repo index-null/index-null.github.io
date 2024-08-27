@@ -49,6 +49,8 @@
       
         <tags>
             
+            <tag> git </tag>
+            
             <tag> hexo </tag>
             
             <tag> npm </tag>
@@ -59,9 +61,36 @@
             
             <tag> blog </tag>
             
+            <tag> node.js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git多人协作开发流程(Feature-branch)</title>
+      <link href="/chushing/2024/07/20/Git%E5%A4%9A%E4%BA%BA%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/"/>
+      <url>/chushing/2024/07/20/Git%E5%A4%9A%E4%BA%BA%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Git多人协作开发流程"><a href="#Git多人协作开发流程" class="headerlink" title="Git多人协作开发流程"></a>Git多人协作开发流程</h1><h2 id="1-克隆远程仓库"><a href="#1-克隆远程仓库" class="headerlink" title="1. 克隆远程仓库"></a>1. 克隆远程仓库</h2><p>首先，每个开发者需要从远程仓库克隆项目到本地。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;远程仓库URL&gt;</span><br></pre></td></tr></table></figure><p>具体的步骤可以参考<a href="https://help.github.com/articles/cloning-a-repository/">GitHub帮助文档-Cloning a repository</a>。</p><blockquote><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>从GitHub克隆仓库，配置SSH公钥通常是一个很好的实践。具体可以参考<a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">GitHub SSH公钥配置</a>。</p><p>远程分支在本地,通常是以<code>origin/branch-name</code>的形式表示。它的作用只是<strong>指示远程分支的开发进度</strong>,并不会干扰本地分支。<br>实际上只有在远程仓库上创建了分支，或者将本地分支push到了远程仓库,才会有远程分支。</p></blockquote><h2 id="2-创建并切换分支"><a href="#2-创建并切换分支" class="headerlink" title="2. 创建并切换分支"></a>2. 创建并切换分支</h2><p>为避免直接在主分支上工作，每个开发者应创建自己的特性分支。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b feature-branch</span><br></pre></td></tr></table></figure><p>上述命令会创建一个名为<code>feature-branch</code>的新分支，并立即切换到该分支。如果只是创建一个新分支，不切换到该分支，可使用<code>git branch feature-branch</code>。</p><h2 id="3-开发与提交"><a href="#3-开发与提交" class="headerlink" title="3. 开发与提交"></a>3. 开发与提交</h2><p>在特性分支上进行开发，定期提交代码。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;提交信息：描述本次修改内容&quot;</span></span><br></pre></td></tr></table></figure><h2 id="4-同步远程仓库更新"><a href="#4-同步远程仓库更新" class="headerlink" title="4. 同步远程仓库更新"></a>4. 同步远程仓库更新</h2><blockquote><p><strong>在开发过程中，需定期从远程主分支获取最新代码并合并到本地，避免后续合并冲突!!</strong></p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin main</span><br><span class="line">git merge origin/main</span><br></pre></td></tr></table></figure><p>当然,上述的命令也可以通过一条命令实现:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main</span><br></pre></td></tr></table></figure><p>具体的步骤可以参考<a href="https://help.github.com/articles/syncing-a-fork/">GitHub帮助文档-Syncing a fork</a>。</p><h2 id="5-推送分支到远程仓库"><a href="#5-推送分支到远程仓库" class="headerlink" title="5. 推送分支到远程仓库"></a>5. 推送分支到远程仓库</h2><p>完成某段功能时，将本地分支推送到远程仓库。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin feature-branch</span><br></pre></td></tr></table></figure><h2 id="6-创建-Pull-Request"><a href="#6-创建-Pull-Request" class="headerlink" title="6. 创建 Pull Request"></a>6. 创建 Pull Request</h2><p>在GitHub等平台上，从自己的特性分支向主分支发起Pull Request（PR）。</p><h2 id="7-代码审查"><a href="#7-代码审查" class="headerlink" title="7. 代码审查"></a>7. 代码审查</h2><p>团队成员审查PR中的代码变更，可提出修改建议或直接在网页上进行评论。</p><h2 id="8-修改与反馈"><a href="#8-修改与反馈" class="headerlink" title="8. 修改与反馈"></a>8. 修改与反馈</h2><p>根据审查意见，在本地修改代码后提交，并推送到远程分支。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add . <span class="comment"># 添加修改</span></span><br><span class="line">git commit --amend <span class="comment"># 修改最近一次提交</span></span><br><span class="line">git push origin feature-branch --force-with-lease <span class="comment"># 强制推送，注意保护已有工作</span></span><br></pre></td></tr></table></figure><h2 id="9-合并-Pull-Request"><a href="#9-合并-Pull-Request" class="headerlink" title="9. 合并 Pull Request"></a>9. 合并 Pull Request</h2><p>审查通过后，项目管理员或有权限的成员合并PR到主分支。</p><h2 id="10-删除已合并的分支（可选）"><a href="#10-删除已合并的分支（可选）" class="headerlink" title="10. 删除已合并的分支（可选）"></a>10. 删除已合并的分支（可选）</h2><p>保持仓库整洁，合并后可考虑删除远程和本地的特性分支。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d feature-branch</span><br><span class="line">git push origin --delete feature-branch</span><br></pre></td></tr></table></figure><h2 id="11-更新本地主分支"><a href="#11-更新本地主分支" class="headerlink" title="11. 更新本地主分支"></a>11. 更新本地主分支</h2><p>最后，拉取并合并最新的主分支到本地，为下一轮开发做准备。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout main</span><br><span class="line">git pull origin main</span><br></pre></td></tr></table></figure><blockquote><h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><p>Git多人开发是较为复杂的话题,这里介绍一种基础的模式,即<code>Feature-branch</code>的模式,适合小型团队.进阶到大型团队,可能会需要更加深入的<code>Git flow</code>开发流.</p><p>多人协作开发时,主分支是公共的,所以需要使用分支来隔离开发。因此通常会创建开发分支。开发过程中,<strong>不断关注当前远程主分支的最新状态</strong>,减少发生合并冲突的可能.在本地完成开发</p><p>在本地开发完成后,再将本地分支推送到远程开发分支,申请合并到远程主分支即可。</p><h4 id="参考链接-Feature-branch开发流-GIT-FLOW开发流"><a href="#参考链接-Feature-branch开发流-GIT-FLOW开发流" class="headerlink" title="参考链接:Feature-branch开发流 GIT-FLOW开发流"></a>参考链接:<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow">Feature-branch开发流</a> <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">GIT-FLOW开发流</a></h4></blockquote><blockquote><h3 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题:"></a>可能遇到的问题:</h3><ol><li><p><strong>冲突:</strong> 分支合并时,如果存在冲突,需要手动解决。这里我推荐使用<br>  IDE的Git工具,而不是git diff命令.它会自动提示冲突的位置,有更强的文本比对能力。也更加直观.以Jetbrains为例,相关的插件可以参考<a href="https://www.jetbrains.com/help/idea/git-plugin.html">Git插件</a>。</p></li><li><p>开发过程需要切换分支,但需要保留工作区的状态,可以使用<code>git stash</code>命令。具体可以参考<a href="https://www.atlassian.com/git/tutorials/git-stash">Git stash命令</a>。</p></li><li><p>另外强烈推荐一个Git命令的学习网站,它提供可视化的Git分支树示,方便理解Git的分支管理流程: <a href="https://git-school.github.io/visualizing-git/">Git-Visualize</a> or<br>  <a href="https://learngitbranching.js.org/?locale=zh_CN">Learning-git-branching</a>.根据我的经验,大约三四个小时可以刷完,通过项目中不断使用相信能有较好的掌握.</p></li></ol></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Programming </category>
+          
+          <category> Tutorial </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
             <tag> git </tag>
             
-            <tag> node.js </tag>
+            <tag> gitflow </tag>
             
         </tags>
       
