@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chuhsing.com/music/cherry-chen/</loc>
+    
+    <lastmod>2024-08-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chuhsing.com/chushing/2024/08/24/%E9%B8%A1%E5%B0%BE%E9%85%92%E6%8C%87%E5%8D%97/</loc>
     
     <lastmod>2024-08-31</lastmod>
@@ -39,15 +48,6 @@
   
   <url>
     <loc>https://chuhsing.com/movies/love-letter/</loc>
-    
-    <lastmod>2024-07-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/music/cherry-chen/</loc>
     
     <lastmod>2024-07-28</lastmod>
     
