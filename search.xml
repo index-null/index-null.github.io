@@ -4,33 +4,6 @@
   
     
     <entry>
-      <title>HTML学习笔记</title>
-      <link href="/chushing/2024/09/01/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-      <url>/chushing/2024/09/01/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-      
-        <content type="html"><![CDATA[<h1 id="div-和-span标签"><a href="#div-和-span标签" class="headerlink" title="div 和 span标签"></a>div 和 span标签</h1><p>在HTML中，<code>&lt;div&gt;</code> 和 <code>&lt;span&gt;</code> 都是用于组合其他HTML元素的容器标签，它们本身没有任何特殊的格式化效果，用途在于通过CSS来控制样式或通过JavaScript来添加行为。</p><ul><li><p><code>&lt;div&gt;</code></p><ul><li>是一个块级元素。</li><li>默认情况下，每个 <code>div</code> 都会从新的行开始，并且其后的元素也会从新行开始。</li><li>通常用于<strong>组合文档中的区块</strong>，比如头部、脚注或者章节等。</li><li>例子：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ul></li><li><p><code>&lt;span&gt;</code></p><ul><li>是一个内联元素。</li><li>不会强制换行，它会让内容与其他内联元素在同一行显示。</li><li>通常用于<strong>组合文档中的行内文本</strong>，如高亮某些文字或为特定文本添加样式。</li><li>例子：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;highlight&quot;</span>&gt;</span>这段文字<span class="tag">&lt;/<span class="name">span</span>&gt;</span>会被高亮。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ul></li></ul><p>总结：</p><ul><li><code>&lt;div&gt;</code> 适用于较大的结构块，如布局分区。</li><li><code>&lt;span&gt;</code> 适用于小范围的内容修饰，如文本内的样式变化。</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Programming </category>
-          
-          <category> Note </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> HTML </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Vue学习笔记</title>
       <link href="/chushing/2024/09/01/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/chushing/2024/09/01/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
@@ -103,6 +76,8 @@
       
         <tags>
             
+            <tag> git </tag>
+            
             <tag> hexo </tag>
             
             <tag> npm </tag>
@@ -112,8 +87,6 @@
             <tag> markdown </tag>
             
             <tag> blog </tag>
-            
-            <tag> git </tag>
             
             <tag> node.js </tag>
             
