@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>wsl参考的对象类型不支持尝试的操作</title>
+      <link href="/chushing/2024/12/16/wsl%E5%8F%82%E8%80%83%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%94%AF%E6%8C%81%E5%B0%9D%E8%AF%95%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
+      <url>/chushing/2024/12/16/wsl%E5%8F%82%E8%80%83%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%94%AF%E6%8C%81%E5%B0%9D%E8%AF%95%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="情景描述"><a href="#情景描述" class="headerlink" title="情景描述"></a>情景描述</h2><p>在Windows环境下启动Ubuntu子系统时，遇到了如下错误提示：“参考的对象类型不支持尝试的操作”。</p><h2 id="永久解决方案"><a href="#永久解决方案" class="headerlink" title="永久解决方案"></a>永久解决方案</h2><h3 id="下载并配置NoLsp-exe"><a href="#下载并配置NoLsp-exe" class="headerlink" title="下载并配置NoLsp.exe"></a>下载并配置NoLsp.exe</h3><p>为了解决上述问题，您可以下载<code>NoLsp.exe</code>程序，并按照以下步骤操作：</p><ul><li><strong>下载链接</strong>：<ul><li>原始链接（可能需要代理）: <a href="http://www.proxifier.com/tmp/Test20200228/NoLsp.exe">NoLsp.exe</a></li><li>国内CDN链接: <a href="https://cdn.aruoxi.com/dll/NoLsp.exe">NoLsp.exe</a></li></ul></li></ul><p>下载完成后，请将<code>NoLsp.exe</code>放置于 <code>C:\windows\system32</code> 目录下。</p><h3 id="管理员权限执行命令"><a href="#管理员权限执行命令" class="headerlink" title="管理员权限执行命令"></a>管理员权限执行命令</h3><p>接下来，您需要以管理员身份运行命令提示符（CMD），然后输入下列命令来执行：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NoLsp.exe C:\windows\system32\wsl.exe</span><br></pre></td></tr></table></figure><p>请确保<code>NoLsp.exe</code>和<code>wsl.exe</code>的路径正确无误。</p><h2 id="错误原因分析"><a href="#错误原因分析" class="headerlink" title="错误原因分析"></a>错误原因分析</h2><p>根据Proxifier开发人员的解释，当Winsock LSP (Layered Service Provider) DLL被加载进<code>wsl.exe</code>进程时，就会出现该错误。解决这一问题最直接的方法是使用<code>WSCSetApplicationCategory</code> WinAPI调用对<code>wsl.exe</code>进行设置，以此阻止LSP DLL的加载。</p><p>具体来说，这个API调用会在注册表路径<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters\AppId_Catalog</code>中为<code>wsl.exe</code>创建一个条目。此条目的存在会指示Windows不要向<code>wsl.exe</code>进程中加载任何LSP DLL，从而避免了错误的发生。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Programming </category>
+          
+          <category> Debug </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> wsl </tag>
+            
+            <tag> debug </tag>
+            
+            <tag> nolsp </tag>
+            
+            <tag> wsl2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue学习笔记</title>
       <link href="/chushing/2024/09/01/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/chushing/2024/09/01/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
@@ -76,13 +109,13 @@
       
         <tags>
             
+            <tag> wsl </tag>
+            
             <tag> git </tag>
             
             <tag> hexo </tag>
             
             <tag> npm </tag>
-            
-            <tag> wsl </tag>
             
             <tag> markdown </tag>
             

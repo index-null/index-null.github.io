@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chuhsing.com/chushing/2024/12/16/wsl%E5%8F%82%E8%80%83%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%94%AF%E6%8C%81%E5%B0%9D%E8%AF%95%E7%9A%84%E6%93%8D%E4%BD%9C/</loc>
+    
+    <lastmod>2024-12-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chuhsing.com/music/cheer-chen/</loc>
     
     <lastmod>2024-10-06</lastmod>
@@ -121,7 +130,7 @@
 
   <url>
     <loc>https://chuhsing.com/</loc>
-    <lastmod>2024-10-25</lastmod>
+    <lastmod>2024-12-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -129,70 +138,91 @@
   
   <url>
     <loc>https://chuhsing.com/tags/Vue/</loc>
-    <lastmod>2024-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/git/</loc>
-    <lastmod>2024-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/gitflow/</loc>
-    <lastmod>2024-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/hexo/</loc>
-    <lastmod>2024-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/npm/</loc>
-    <lastmod>2024-10-25</lastmod>
+    <lastmod>2024-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chuhsing.com/tags/wsl/</loc>
-    <lastmod>2024-10-25</lastmod>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/debug/</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/nolsp/</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/wsl2/</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/git/</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/gitflow/</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/hexo/</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/npm/</loc>
+    <lastmod>2024-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chuhsing.com/tags/markdown/</loc>
-    <lastmod>2024-10-25</lastmod>
+    <lastmod>2024-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chuhsing.com/tags/blog/</loc>
-    <lastmod>2024-10-25</lastmod>
+    <lastmod>2024-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chuhsing.com/tags/node-js/</loc>
-    <lastmod>2024-10-25</lastmod>
+    <lastmod>2024-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chuhsing.com/tags/Cocktails/</loc>
-    <lastmod>2024-10-25</lastmod>
+    <lastmod>2024-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -201,35 +231,42 @@
   
   <url>
     <loc>https://chuhsing.com/categories/Programming/</loc>
-    <lastmod>2024-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/categories/life/</loc>
-    <lastmod>2024-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/categories/Programming/Note/</loc>
-    <lastmod>2024-10-25</lastmod>
+    <lastmod>2024-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chuhsing.com/categories/Programming/Tutorial/</loc>
-    <lastmod>2024-10-25</lastmod>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/categories/Programming/Note/</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/categories/life/</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/categories/Programming/Debug/</loc>
+    <lastmod>2024-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chuhsing.com/categories/life/Cocktails/</loc>
-    <lastmod>2024-10-25</lastmod>
+    <lastmod>2024-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
