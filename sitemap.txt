@@ -1,9 +1,9 @@
+https://chuhsing.com/chushing/2025/02/26/wsl%E8%BF%81%E7%A7%BB%E6%95%99%E7%A8%8B/
+https://chuhsing.com/chushing/2024/08/21/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B-%E5%9F%BA%E7%A1%80%E7%AF%87/
 https://chuhsing.com/chushing/2024/12/16/wsl%E5%8F%82%E8%80%83%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%94%AF%E6%8C%81%E5%B0%9D%E8%AF%95%E7%9A%84%E6%93%8D%E4%BD%9C/
 https://chuhsing.com/music/cheer-chen/
-https://chuhsing.com/chushing/2024/09/01/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
 https://chuhsing.com/chushing/2024/08/24/%E9%B8%A1%E5%B0%BE%E9%85%92%E6%8C%87%E5%8D%97/
 https://chuhsing.com/chushing/2024/07/20/Git%E5%A4%9A%E4%BA%BA%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/
-https://chuhsing.com/chushing/2024/08/21/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B-%E5%9F%BA%E7%A1%80%E7%AF%87/
 https://chuhsing.com/about/
 https://chuhsing.com/movies/love-letter/
 https://chuhsing.com/music/
@@ -13,11 +13,12 @@ https://chuhsing.com/categories/
 https://chuhsing.com/tags/
 https://chuhsing.com/movies/
 https://chuhsing.com/
-https://chuhsing.com/tags/Vue/
 https://chuhsing.com/tags/wsl/
 https://chuhsing.com/tags/debug/
 https://chuhsing.com/tags/nolsp/
 https://chuhsing.com/tags/wsl2/
+https://chuhsing.com/tags/python/
+https://chuhsing.com/tags/jupyter/
 https://chuhsing.com/tags/git/
 https://chuhsing.com/tags/gitflow/
 https://chuhsing.com/tags/hexo/
@@ -28,7 +29,7 @@ https://chuhsing.com/tags/node-js/
 https://chuhsing.com/tags/Cocktails/
 https://chuhsing.com/categories/Programming/
 https://chuhsing.com/categories/Programming/Tutorial/
-https://chuhsing.com/categories/Programming/Note/
-https://chuhsing.com/categories/life/
 https://chuhsing.com/categories/Programming/Debug/
+https://chuhsing.com/categories/life/
+https://chuhsing.com/categories/Programming/Tips/
 https://chuhsing.com/categories/life/Cocktails/
