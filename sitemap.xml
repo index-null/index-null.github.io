@@ -146,20 +146,6 @@
 
   
   <url>
-    <loc>https://chuhsing.com/tags/html5/</loc>
-    <lastmod>2025-02-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/semantic-tagging/</loc>
-    <lastmod>2025-02-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chuhsing.com/tags/wsl/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -182,6 +168,20 @@
   
   <url>
     <loc>https://chuhsing.com/tags/wsl2/</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/html5/</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/semantic-tagging/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -260,13 +260,6 @@
 
   
   <url>
-    <loc>https://chuhsing.com/categories/programming/</loc>
-    <lastmod>2025-02-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chuhsing.com/categories/Programming/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -274,14 +267,14 @@
   </url>
   
   <url>
-    <loc>https://chuhsing.com/categories/programming/notes/</loc>
+    <loc>https://chuhsing.com/categories/programming/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://chuhsing.com/categories/life/</loc>
+    <loc>https://chuhsing.com/categories/Programming/Tutorial/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -295,14 +288,21 @@
   </url>
   
   <url>
-    <loc>https://chuhsing.com/categories/Programming/Tips/</loc>
+    <loc>https://chuhsing.com/categories/life/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://chuhsing.com/categories/Programming/Tutorial/</loc>
+    <loc>https://chuhsing.com/categories/programming/notes/</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/categories/Programming/Tips/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
