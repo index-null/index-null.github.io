@@ -22,13 +22,13 @@ https://chuhsing.com/tags/html5/
 https://chuhsing.com/tags/semantic-tagging/
 https://chuhsing.com/tags/storage/
 https://chuhsing.com/tags/migration/
+https://chuhsing.com/tags/git/
+https://chuhsing.com/tags/gitflow/
 https://chuhsing.com/tags/hexo/
 https://chuhsing.com/tags/npm/
 https://chuhsing.com/tags/markdown/
 https://chuhsing.com/tags/blog/
-https://chuhsing.com/tags/git/
 https://chuhsing.com/tags/node-js/
-https://chuhsing.com/tags/gitflow/
 https://chuhsing.com/tags/Cocktails/
 https://chuhsing.com/categories/Programming/
 https://chuhsing.com/categories/programming/
