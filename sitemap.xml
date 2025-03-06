@@ -211,27 +211,6 @@
   </url>
   
   <url>
-    <loc>https://chuhsing.com/tags/javascript/</loc>
-    <lastmod>2025-03-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/js/</loc>
-    <lastmod>2025-03-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/ES6/</loc>
-    <lastmod>2025-03-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chuhsing.com/tags/git/</loc>
     <lastmod>2025-03-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -287,6 +266,27 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://chuhsing.com/tags/javascript/</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/js/</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/ES6/</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -311,14 +311,14 @@
   </url>
   
   <url>
-    <loc>https://chuhsing.com/categories/Programming/Tips/</loc>
+    <loc>https://chuhsing.com/categories/life/</loc>
     <lastmod>2025-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://chuhsing.com/categories/life/</loc>
+    <loc>https://chuhsing.com/categories/Programming/Tips/</loc>
     <lastmod>2025-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

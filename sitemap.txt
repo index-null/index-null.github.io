@@ -23,9 +23,6 @@ https://chuhsing.com/tags/storage/
 https://chuhsing.com/tags/migration/
 https://chuhsing.com/tags/html5/
 https://chuhsing.com/tags/semantic-tagging/
-https://chuhsing.com/tags/javascript/
-https://chuhsing.com/tags/js/
-https://chuhsing.com/tags/ES6/
 https://chuhsing.com/tags/git/
 https://chuhsing.com/tags/gitflow/
 https://chuhsing.com/tags/hexo/
@@ -34,10 +31,13 @@ https://chuhsing.com/tags/markdown/
 https://chuhsing.com/tags/blog/
 https://chuhsing.com/tags/node-js/
 https://chuhsing.com/tags/Cocktails/
+https://chuhsing.com/tags/javascript/
+https://chuhsing.com/tags/js/
+https://chuhsing.com/tags/ES6/
 https://chuhsing.com/categories/Programming/
 https://chuhsing.com/categories/Programming/Tutorial/
 https://chuhsing.com/categories/Programming/Debug/
-https://chuhsing.com/categories/Programming/Tips/
 https://chuhsing.com/categories/life/
+https://chuhsing.com/categories/Programming/Tips/
 https://chuhsing.com/categories/Programming/Notes/
 https://chuhsing.com/categories/life/Cocktails/
