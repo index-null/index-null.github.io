@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>组件库的主题切换怎么做的？ | Chuhsing's Blog</title><meta name="author" content="Chuhsing"><meta name="copyright" content="Chuhsing"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="深入解析Element Plus主题切换的实现原理，从CSS变量到动态控制的完整实现方案">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组件库的主题切换怎么做的？">
+<meta property="og:url" content="https://chuhsing.com/chushing/2025/11/12/%E7%BB%84%E4%BB%B6%E5%BA%93%E7%9A%84%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E6%80%8E%E4%B9%88%E5%81%9A%E7%9A%84%EF%BC%9F/">
+<meta property="og:site_name" content="Chuhsing&#39;s Blog">
+<meta property="og:description" content="深入解析Element Plus主题切换的实现原理，从CSS变量到动态控制的完整实现方案">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chuhsing-blog-bucket.oss-cn-shenzhen.aliyuncs.com/chuhsing/202407272238620.png">
+<meta property="article:published_time" content="2025-11-12T12:55:34.000Z">
+<meta property="article:modified_time" content="2025-11-12T13:34:50.505Z">
+<meta property="article:author" content="Chuhsing">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="element-plus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chuhsing-blog-bucket.oss-cn-shenzhen.aliyuncs.com/chuhsing/202407272238620.png"><link rel="shortcut icon" href="https://chuhsing-blog-bucket.oss-cn-shenzhen.aliyuncs.com/chuhsing/202407272335307.png"><link rel="canonical" href="https://chuhsing.com/chushing/2025/11/12/%E7%BB%84%E4%BB%B6%E5%BA%93%E7%9A%84%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E6%80%8E%E4%B9%88%E5%81%9A%E7%9A%84%EF%BC%9F/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '组件库的主题切换怎么做的？',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-12 21:34:50'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chuhsing-blog-bucket.oss-cn-shenzhen.aliyuncs.com/chuhsing/202407272238620.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: rgba(0, 0, 0, 0.1)"><nav id="nav"><span id="blog-info"><a href="/" title="Chuhsing's Blog"><img class="site-icon" src="https://chuhsing-blog-bucket.oss-cn-shenzhen.aliyuncs.com/chuhsing/202407272334289.png"/><span class="site-name">Chuhsing's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">组件库的主题切换怎么做的？</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-11-12T12:55:34.000Z" title="Created 2025-11-12 20:55:34">2025-11-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-11-12T13:34:50.505Z" title="Updated 2025-11-12 21:34:50">2025-11-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Tech-Tutorial/">Tech Tutorial</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="组件库的主题切换怎么做的？"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id=""><a href="#" class="headerlink" title=""></a><mark class="hl-label blue">ElementPlus主题切换机制</mark> </h1><p>在前端开发中，主题切换是提升用户体验的重要功能，Element Plus作为一款优秀的Vue 3组件库，提供了简洁而强大的主题定制方案。本文将深入解析Element Plus主题切换的实现原理，带你从底层理解到实际应用。</p>
+<div class="note info flat"><p>本文将围绕Element Plus的dark&#x2F;light模式切换展开，但其原理同样适用于自定义主题的切换。掌握这一机制，你将能够轻松应对各种主题定制需求。</p>
+</div>
+
+<h2 id="主题切换的底层原理：CSS变量"><a href="#主题切换的底层原理：CSS变量" class="headerlink" title="主题切换的底层原理：CSS变量"></a>主题切换的底层原理：CSS变量</h2><p>Element Plus的组件样式基于CSS变量（CSS Custom Properties）实现。这意味着组件的外观由一组预定义的CSS变量控制，而非硬编码的颜色值。</p>
+<h3 id="默认状态下的变量定义"><a href="#默认状态下的变量定义" class="headerlink" title="默认状态下的变量定义"></a>默认状态下的变量定义</h3><p>在默认情况下，组件使用定义在<code>:root</code>选择器下的CSS变量：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 默认light主题的变量定义 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--el-color-primary</span>: <span class="number">#409eff</span>;</span><br><span class="line">  <span class="attr">--el-bg-color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">  <span class="attr">--el-text-color-primary</span>: <span class="number">#303133</span>;</span><br><span class="line">  <span class="comment">/* 更多变量... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Element Plus组件内部引用这些变量：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.el-button</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">var</span>(--el-color-primary);</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--el-color-white);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.el-container</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">var</span>(--el-bg-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现暗黑模式：类名切换方案"><a href="#实现暗黑模式：类名切换方案" class="headerlink" title="实现暗黑模式：类名切换方案"></a>实现暗黑模式：类名切换方案</h2><p>Element Plus的暗黑模式通过在<code>&lt;html&gt;</code>标签上添加<code>dark</code>类实现。当检测到<code>html.dark</code>存在时，使用另一套CSS变量定义。</p>
+<h3 id="引入暗黑模式样式"><a href="#引入暗黑模式样式" class="headerlink" title="引入暗黑模式样式"></a>引入暗黑模式样式</h3><p>首先，需要在项目中引入Element Plus的暗黑模式样式：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.ts</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-plus/theme-chalk/index.css&#x27;</span>       <span class="comment">// 默认样式</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-plus/theme-chalk/dark/css-vars.css&#x27;</span> <span class="comment">// 暗黑模式变量</span></span><br></pre></td></tr></table></figure>
+
+<p>暗黑模式的CSS变量定义如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 暗黑模式下的变量重新定义 */</span></span><br><span class="line"><span class="selector-tag">html</span><span class="selector-class">.dark</span> &#123;</span><br><span class="line">  <span class="attr">--el-color-primary</span>: <span class="number">#409eff</span>;</span><br><span class="line">  <span class="attr">--el-bg-color</span>: <span class="number">#141414</span>;</span><br><span class="line">  <span class="attr">--el-text-color-primary</span>: <span class="number">#e5eaf3</span>;</span><br><span class="line">  <span class="comment">/* 更多变量... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note success flat"><p>这种方案的优势在于，切换主题只需改变类名，无需重新加载组件或刷新页面，体验流畅且性能高效。</p>
+</div>
+
+<h2 id="动态控制：从状态到UI"><a href="#动态控制：从状态到UI" class="headerlink" title="动态控制：从状态到UI"></a>动态控制：从状态到UI</h2><p>接下来，我们需要解决的核心问题是：如何动态控制<code>&lt;html&gt;</code>的<code>dark</code>类？</p>
+<h3 id="方案一：使用VueUse的useDark"><a href="#方案一：使用VueUse的useDark" class="headerlink" title="方案一：使用VueUse的useDark"></a>方案一：使用VueUse的useDark</h3><p>最简单的方案是使用VueUse库提供的<code>useDark</code>组合式函数：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useDark &#125; <span class="keyword">from</span> <span class="string">&#x27;@vueuse/core&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在组件中使用</span></span><br><span class="line"><span class="keyword">const</span> isDark = <span class="title function_">useDark</span>()</span><br></pre></td></tr></table></figure>
+
+<p>在模板中绑定：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">:class</span>=<span class="string">&quot;&#123; dark: isDark &#125;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="方案二：自定义实现"><a href="#方案二：自定义实现" class="headerlink" title="方案二：自定义实现"></a>方案二：自定义实现</h3><p>如果不想依赖VueUse，可以自己实现一个简单的主题管理系统：</p>
+<div class="tabs" id="主题管理实现"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="主题管理实现-1">Store实现</button><button type="button" class="tab " data-href="主题管理实现-2">组件使用</button></ul><div class="tab-contents"><div class="tab-item-content active" id="主题管理实现-1"><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store/theme.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; ref, watchEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; useStorage &#125; <span class="keyword">from</span> <span class="string">&#x27;@vueuse/core&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">themeStore</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 使用localStorage持久化主题状态</span></span><br><span class="line">  <span class="keyword">const</span> themeMode = <span class="title function_">useStorage</span>(<span class="string">&#x27;theme&#x27;</span>, <span class="string">&#x27;light&#x27;</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 切换主题</span></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">toggleTheme</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    themeMode.<span class="property">value</span> = themeMode.<span class="property">value</span> === <span class="string">&#x27;light&#x27;</span> ? <span class="string">&#x27;dark&#x27;</span> : <span class="string">&#x27;light&#x27;</span></span><br><span class="line">    <span class="title function_">updateThemeClass</span>()</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 应用主题类</span></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">updateThemeClass</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> html = <span class="variable language_">document</span>.<span class="property">documentElement</span></span><br><span class="line">    <span class="keyword">if</span> (themeMode.<span class="property">value</span> === <span class="string">&#x27;dark&#x27;</span>) &#123;</span><br><span class="line">      html.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;dark&#x27;</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      html.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;dark&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 初始化时应用保存的主题</span></span><br><span class="line">  <span class="title function_">watchEffect</span>(updateThemeClass)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    themeMode,</span><br><span class="line">    toggleTheme,</span><br><span class="line">    <span class="attr">isDark</span>: <span class="title function_">computed</span>(<span class="function">() =&gt;</span> themeMode.<span class="property">value</span> === <span class="string">&#x27;dark&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-item-content" id="主题管理实现-2"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;el-switch</span><br><span class="line">      v-model=&quot;isDark&quot;</span><br><span class="line">      @change=&quot;toggleTheme&quot;</span><br><span class="line">      active-text=&quot;暗黑模式&quot;</span><br><span class="line">      inactive-text=&quot;明亮模式&quot;</span><br><span class="line">    /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; storeToRefs &#125; from &#x27;pinia&#x27;</span><br><span class="line">import &#123; themeStore &#125; from &#x27;@/store/theme&#x27;</span><br><span class="line"></span><br><span class="line">const &#123; isDark &#125; = storeToRefs(themeStore())</span><br><span class="line">const &#123; toggleTheme &#125; = themeStore()</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<h2 id="自定义主题：不止于dark-light"><a href="#自定义主题：不止于dark-light" class="headerlink" title="自定义主题：不止于dark&#x2F;light"></a>自定义主题：不止于dark&#x2F;light</h2><p>基于CSS变量的机制，我们可以轻松创建自定义主题，比如护眼模式、高对比度模式等。</p>
+<h3 id="创建自定义主题"><a href="#创建自定义主题" class="headerlink" title="创建自定义主题"></a>创建自定义主题</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 护眼模式 */</span></span><br><span class="line"><span class="selector-tag">html</span><span class="selector-class">.eye-protection</span> &#123;</span><br><span class="line">  <span class="attr">--el-bg-color</span>: <span class="number">#f7f3e9</span>;</span><br><span class="line">  <span class="attr">--el-text-color-primary</span>: <span class="number">#4a4a4a</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 高对比度模式 */</span></span><br><span class="line"><span class="selector-tag">html</span><span class="selector-class">.high-contrast</span> &#123;</span><br><span class="line">  <span class="attr">--el-bg-color</span>: <span class="number">#000000</span>;</span><br><span class="line">  <span class="attr">--el-text-color-primary</span>: <span class="number">#ffffff</span>;</span><br><span class="line">  <span class="attr">--el-border-color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后扩展切换逻辑：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主题枚举</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">ThemeMode</span> &#123;</span><br><span class="line">  <span class="variable constant_">LIGHT</span> = <span class="string">&#x27;light&#x27;</span>,</span><br><span class="line">  <span class="variable constant_">DARK</span> = <span class="string">&#x27;dark&#x27;</span>,</span><br><span class="line">  <span class="variable constant_">EYE_PROTECTION</span> = <span class="string">&#x27;eye-protection&#x27;</span>,</span><br><span class="line">  <span class="variable constant_">HIGH_CONTRAST</span> = <span class="string">&#x27;high-contrast&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新主题切换逻辑</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">updateThemeClass</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> html = <span class="variable language_">document</span>.<span class="property">documentElement</span></span><br><span class="line">  <span class="comment">// 移除所有主题类</span></span><br><span class="line">  <span class="title class_">Object</span>.<span class="title function_">values</span>(<span class="title class_">ThemeMode</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">mode</span> =&gt;</span> &#123;</span><br><span class="line">    html.<span class="property">classList</span>.<span class="title function_">remove</span>(mode)</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 添加当前主题类</span></span><br><span class="line">  html.<span class="property">classList</span>.<span class="title function_">add</span>(themeMode.<span class="property">value</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>Element Plus主题定制之路</p>
+</div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>起步</p>
+</div></div><div class='timeline-item-content'><p>Element Plus使用CSS变量定义主题样式，而不是硬编码颜色值</p>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>基础</p>
+</div></div><div class='timeline-item-content'><p>默认light主题变量定义在:root下，暗黑模式变量定义在html.dark下</p>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>核心</p>
+</div></div><div class='timeline-item-content'><p>通过动态给html添加&#x2F;移除dark类来实现主题切换</p>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>实践</p>
+</div></div><div class='timeline-item-content'><p>使用状态管理维护主题状态，并同步更新html类名</p>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>进阶</p>
+</div></div><div class='timeline-item-content'><p>同样原理可扩展为多种自定义主题，如护眼模式、高对比度模式等</p>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>总结</p>
+</div></div><div class='timeline-item-content'><p>CSS变量+类名切换的模式提供了强大而灵活的主题定制能力</p>
+</div></div></div>
+
+<h2 id="主题定制进阶：SCSS变量覆盖"><a href="#主题定制进阶：SCSS变量覆盖" class="headerlink" title="主题定制进阶：SCSS变量覆盖"></a>主题定制进阶：SCSS变量覆盖</h2><p>对于更复杂的主题定制，Element Plus支持通过SCSS变量覆盖进行深度定制：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// styles/element/index.scss</span></span><br><span class="line"><span class="keyword">@forward</span> <span class="string">&#x27;element-plus/theme-chalk/src/common/var.scss&#x27;</span> with (</span><br><span class="line">  <span class="variable">$colors</span>: (</span><br><span class="line">    <span class="string">&#x27;primary&#x27;</span>: (</span><br><span class="line">      <span class="string">&#x27;base&#x27;</span>: <span class="number">#1890ff</span>,</span><br><span class="line">    ),</span><br><span class="line">  ),</span><br><span class="line">  <span class="variable">$bg-color</span>: (</span><br><span class="line">    <span class="string">&#x27;page&#x27;</span>: <span class="number">#f5f5f5</span>,</span><br><span class="line">    <span class="string">&#x27;&#x27;</span>: <span class="number">#ffffff</span>,</span><br><span class="line">    <span class="string">&#x27;overlay&#x27;</span>: <span class="number">#ffffff</span>,</span><br><span class="line">  ),</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果需要暗黑模式</span></span><br><span class="line"><span class="keyword">@forward</span> <span class="string">&#x27;element-plus/theme-chalk/src/dark/var.scss&#x27;</span> with (</span><br><span class="line">  <span class="variable">$colors</span>: (</span><br><span class="line">    <span class="string">&#x27;primary&#x27;</span>: (</span><br><span class="line">      <span class="string">&#x27;base&#x27;</span>: <span class="number">#1890ff</span>,</span><br><span class="line">    ),</span><br><span class="line">  ),</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.ts</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./styles/element/index.scss&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<div class="mermaid-wrap"><pre class="mermaid-src" hidden>
+  graph LR
+A[SCSS变量] --&gt; B[编译生成CSS]
+B --&gt; C[项目引入CSS]
+C --&gt; D[运行时主题切换]
+D --&gt; E[HTML类名变更]
+E --&gt; F[CSS变量生效]
+F --&gt; G[组件样式更新]
+  </pre></div>
+
+<h2 id="实战：打造主题切换组件"><a href="#实战：打造主题切换组件" class="headerlink" title="实战：打造主题切换组件"></a>实战：打造主题切换组件</h2><p>让我们通过一个实际的主题切换组件来整合以上知识：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;theme-switcher&quot;&gt;</span><br><span class="line">    &lt;el-dropdown @command=&quot;handleThemeChange&quot;&gt;</span><br><span class="line">      &lt;el-button :icon=&quot;themeIcon&quot; circle /&gt;</span><br><span class="line">      &lt;template #dropdown&gt;</span><br><span class="line">        &lt;el-dropdown-menu&gt;</span><br><span class="line">          &lt;el-dropdown-item </span><br><span class="line">            v-for=&quot;(theme, key) in themes&quot; </span><br><span class="line">            :key=&quot;key&quot;</span><br><span class="line">            :command=&quot;key&quot;</span><br><span class="line">            :class=&quot;&#123; &#x27;is-active&#x27;: currentTheme === key &#125;&quot;</span><br><span class="line">          &gt;</span><br><span class="line">            &lt;el-icon :class=&quot;theme.icon&quot;&gt;&lt;/el-icon&gt;</span><br><span class="line">            &#123;&#123; theme.name &#125;&#125;</span><br><span class="line">          &lt;/el-dropdown-item&gt;</span><br><span class="line">        &lt;/el-dropdown-menu&gt;</span><br><span class="line">      &lt;/template&gt;</span><br><span class="line">    &lt;/el-dropdown&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; computed, ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">// 主题配置</span><br><span class="line">const themes = &#123;</span><br><span class="line">  light: &#123;</span><br><span class="line">    name: &#x27;明亮模式&#x27;,</span><br><span class="line">    icon: &#x27;el-icon-sunny&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">  dark: &#123;</span><br><span class="line">    name: &#x27;暗黑模式&#x27;,</span><br><span class="line">    icon: &#x27;el-icon-moon&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">  eyeProtection: &#123;</span><br><span class="line">    name: &#x27;护眼模式&#x27;,</span><br><span class="line">    icon: &#x27;el-icon-view&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">  highContrast: &#123;</span><br><span class="line">    name: &#x27;高对比度&#x27;,</span><br><span class="line">    icon: &#x27;el-icon-view&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 当前主题</span><br><span class="line">const currentTheme = ref(&#x27;light&#x27;)</span><br><span class="line"></span><br><span class="line">// 主题图标</span><br><span class="line">const themeIcon = computed(() =&gt; themes[currentTheme.value].icon)</span><br><span class="line"></span><br><span class="line">// 切换主题</span><br><span class="line">const handleThemeChange = (theme: string) =&gt; &#123;</span><br><span class="line">  currentTheme.value = theme</span><br><span class="line">  const html = document.documentElement</span><br><span class="line">  </span><br><span class="line">  // 移除所有主题类</span><br><span class="line">  Object.keys(themes).forEach(key =&gt; &#123;</span><br><span class="line">    html.classList.remove(key)</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  // 添加当前主题类</span><br><span class="line">  html.classList.add(theme)</span><br><span class="line">  </span><br><span class="line">  // 保存到本地存储</span><br><span class="line">  localStorage.setItem(&#x27;theme&#x27;, theme)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 初始化</span><br><span class="line">const initTheme = () =&gt; &#123;</span><br><span class="line">  const savedTheme = localStorage.getItem(&#x27;theme&#x27;) || &#x27;light&#x27;</span><br><span class="line">  handleThemeChange(savedTheme)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">initTheme()</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<div class="note warning flat"><p>在实际项目中，你可能需要考虑SSR兼容性。服务端渲染时，直接访问DOM会导致错误。可以通过客户端检测或使用Vue提供的onMounted钩子来避免此类问题。</p>
+</div>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Element Plus的主题切换机制基于以下核心原理：</p>
+<ol>
+<li><mark class="hl-label purple">CSS变量</mark> ：组件样式通过CSS变量引用，而非硬编码值</li>
+<li><mark class="hl-label blue">类名切换</mark> ：通过改变HTML标签类名来切换不同变量集</li>
+<li><mark class="hl-label green">状态管理</mark> ：使用全局状态维护当前主题，并同步UI</li>
+</ol>
+<p>理解这一机制后，你可以轻松实现：</p>
+<ul>
+<li>多种预定义主题（暗黑、明亮、护眼等）</li>
+<li>用户自定义主题</li>
+<li>主题切换动画效果</li>
+<li>主题偏好持久化存储</li>
+</ul>
+<p>希望这篇文章能帮助你深入理解Element Plus的主题机制，为你的项目提供更丰富的用户体验！</p>
+<a class="btn-beautify outline" target="_blank" rel="noopener" href="https://element-plus.org/en-US/guide/dark-mode" 
+  title="查看Element Plus官方文档"><i class="fas fa-book"></i><span>查看Element Plus官方文档</span></a>
+
+<hr>
+<center><mark class="hl-label red">码字不易，感谢支持</mark> </center></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://chuhsing.com">chuhsing</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://chuhsing.com/chushing/2025/11/12/%E7%BB%84%E4%BB%B6%E5%BA%93%E7%9A%84%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E6%80%8E%E4%B9%88%E5%81%9A%E7%9A%84%EF%BC%9F/">https://chuhsing.com/chushing/2025/11/12/%E7%BB%84%E4%BB%B6%E5%BA%93%E7%9A%84%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E6%80%8E%E4%B9%88%E5%81%9A%E7%9A%84%EF%BC%9F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">本文为原创文章，转载请注明出处</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/frontend/">frontend</a><a class="post-meta__tags" href="/tags/vue/">vue</a><a class="post-meta__tags" href="/tags/element-plus/">element-plus</a></div><div class="post_share"><div class="social-share" data-image="https://chuhsing-blog-bucket.oss-cn-shenzhen.aliyuncs.com/chuhsing/202407272238620.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/chushing/2025/10/11/%E4%BD%A0%E7%9C%9F%E7%9A%84%E6%87%82%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E5%90%97%EF%BC%9F/" title="你真的懂浏览器安全策略吗？从XSS到CSRF的攻防实战"><div class="cover" style="background: linear-gradient(20deg, rgba(0, 0, 255, 0.4), rgba(0, 255, 0, 0.4), rgba(255, 0, 0, 0.4), rgba(255, 255, 0, 0.4))"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">你真的懂浏览器安全策略吗？从XSS到CSRF的攻防实战</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chuhsing-blog-bucket.oss-cn-shenzhen.aliyuncs.com/chuhsing/202407272238620.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chuhsing</div><div class="author-info__description">Raise dogs and money</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/index-null"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/index-null" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:zhuxing.halcyon@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a3dbe;"></i></a><a class="social-icon" href="/about/" target="_blank" title="WeChat"><i class="fa-brands fa-weixin" style="color: #00FF00;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">ElementPlus主题切换机制 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%EF%BC%9ACSS%E5%8F%98%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">主题切换的底层原理：CSS变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E7%8A%B6%E6%80%81%E4%B8%8B%E7%9A%84%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">默认状态下的变量定义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%9A%97%E9%BB%91%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%B1%BB%E5%90%8D%E5%88%87%E6%8D%A2%E6%96%B9%E6%A1%88"><span class="toc-number">1.2.</span> <span class="toc-text">实现暗黑模式：类名切换方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E6%9A%97%E9%BB%91%E6%A8%A1%E5%BC%8F%E6%A0%B7%E5%BC%8F"><span class="toc-number">1.2.1.</span> <span class="toc-text">引入暗黑模式样式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E6%8E%A7%E5%88%B6%EF%BC%9A%E4%BB%8E%E7%8A%B6%E6%80%81%E5%88%B0UI"><span class="toc-number">1.3.</span> <span class="toc-text">动态控制：从状态到UI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A%E4%BD%BF%E7%94%A8VueUse%E7%9A%84useDark"><span class="toc-number">1.3.1.</span> <span class="toc-text">方案一：使用VueUse的useDark</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.2.</span> <span class="toc-text">方案二：自定义实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98%EF%BC%9A%E4%B8%8D%E6%AD%A2%E4%BA%8Edark-light"><span class="toc-number">1.4.</span> <span class="toc-text">自定义主题：不止于dark&#x2F;light</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98"><span class="toc-number">1.4.1.</span> <span class="toc-text">创建自定义主题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E5%AE%9A%E5%88%B6%E8%BF%9B%E9%98%B6%EF%BC%9ASCSS%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96"><span class="toc-number">1.5.</span> <span class="toc-text">主题定制进阶：SCSS变量覆盖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%EF%BC%9A%E6%89%93%E9%80%A0%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E7%BB%84%E4%BB%B6"><span class="toc-number">1.6.</span> <span class="toc-text">实战：打造主题切换组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.7.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2004 - 2025 By Chuhsing</div><div class="footer_custom_text"><span id="jinrishici-sentence">Loading....</span><script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script></div><script type="text/javascript" id="maid-script" src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js?v=undefined"></script><script>if (window.mermaid) {
+  var options = JSON.parse(document.getElementById('maid-script').getAttribute('mermaidoptioins'));
+  mermaid.initialize(options);
+}</script></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
