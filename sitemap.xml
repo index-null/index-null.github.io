@@ -457,27 +457,6 @@
   </url>
   
   <url>
-    <loc>https://chuhsing.com/tags/frontend/</loc>
-    <lastmod>2025-11-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/vue/</loc>
-    <lastmod>2025-11-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/element-plus/</loc>
-    <lastmod>2025-11-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chuhsing.com/tags/hexo/</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -507,6 +486,27 @@
   
   <url>
     <loc>https://chuhsing.com/tags/node-js/</loc>
+    <lastmod>2025-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/frontend/</loc>
+    <lastmod>2025-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/vue/</loc>
+    <lastmod>2025-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/element-plus/</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -578,7 +578,7 @@
   </url>
   
   <url>
-    <loc>https://chuhsing.com/categories/Tech-Tutorial/</loc>
+    <loc>https://chuhsing.com/categories/Tutorial/</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
