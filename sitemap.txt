@@ -1,3 +1,4 @@
+https://chuhsing.com/chushing/2025/11/12/GitHub-Actions-Caddy%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%88%B0%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/
 https://chuhsing.com/chushing/2025/11/12/%E7%BB%84%E4%BB%B6%E5%BA%93%E7%9A%84%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E6%80%8E%E4%B9%88%E5%81%9A%E7%9A%84%EF%BC%9F/
 https://chuhsing.com/movies/love-letter/
 https://chuhsing.com/music/cheer-chen/
@@ -57,6 +58,10 @@ https://chuhsing.com/tags/CORS/
 https://chuhsing.com/tags/CSP/
 https://chuhsing.com/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/
 https://chuhsing.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8/
+https://chuhsing.com/tags/devops/
+https://chuhsing.com/tags/deployment/
+https://chuhsing.com/tags/github-actions/
+https://chuhsing.com/tags/caddy/
 https://chuhsing.com/tags/frontend/
 https://chuhsing.com/tags/vue/
 https://chuhsing.com/tags/element-plus/
@@ -74,6 +79,8 @@ https://chuhsing.com/categories/Programming/Tutorial/
 https://chuhsing.com/categories/Programming/Debug/
 https://chuhsing.com/categories/Programming/Notes/
 https://chuhsing.com/categories/Web-Security/
+https://chuhsing.com/categories/programming/
 https://chuhsing.com/categories/life/
 https://chuhsing.com/categories/Web-Security/Programming/
+https://chuhsing.com/categories/programming/tutorial/
 https://chuhsing.com/categories/life/Cocktails/
