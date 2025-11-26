@@ -1,0 +1,227 @@
+/* Apple-style Modern Search Box - 苹果风格现代搜索框 */
+
+/* 搜索对话框优化 */
+.search-dialog {
+  border-radius: 20px !important;
+  padding: 30px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] .search-dialog {
+  background: rgba(30, 30, 30, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 搜索框标题优化 */
+.search-dialog .search-nav {
+  margin-bottom: 20px !important;
+}
+
+.search-dialog .search-nav .search-dialog-title {
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  color: var(--font-color) !important;
+  letter-spacing: -0.3px;
+}
+
+.search-dialog .search-nav .search-close-button {
+  opacity: 0.5;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+  font-size: 22px !important;
+}
+
+.search-dialog .search-nav .search-close-button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* 搜索输入框 - 苹果风格 */
+#local-search .search-dialog .local-search-box input {
+  padding: 12px 20px !important;
+  font-size: 16px !important;
+  border: none !important;
+  border-radius: 12px !important;
+  background: rgba(120, 120, 128, 0.12) !important;
+  color: var(--font-color) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+}
+
+#local-search .search-dialog .local-search-box input::placeholder {
+  color: rgba(120, 120, 128, 0.5) !important;
+  font-weight: 400;
+}
+
+#local-search .search-dialog .local-search-box input:focus {
+  background: rgba(120, 120, 128, 0.18) !important;
+  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.15) !important;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+[data-theme="dark"] #local-search .search-dialog .local-search-box input {
+  background: rgba(120, 120, 128, 0.24) !important;
+}
+
+[data-theme="dark"] #local-search .search-dialog .local-search-box input:focus {
+  background: rgba(120, 120, 128, 0.32) !important;
+}
+
+/* 搜索结果列表优化 */
+#local-search .search-result-list {
+  padding: 10px 0 !important;
+  margin: 0 !important;
+  max-height: calc(70vh - 180px) !important;
+}
+
+/* 自定义滚动条 - macOS 风格 */
+#local-search .search-result-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+#local-search .search-result-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#local-search .search-result-list::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 128, 0.3);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+#local-search .search-result-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 120, 128, 0.5);
+  background-clip: content-box;
+}
+
+/* 搜索结果项优化 */
+#local-search .local-search-hit-item {
+  padding: 12px 16px 12px 32px !important;
+  margin-bottom: 4px !important;
+  border-radius: 10px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+#local-search .local-search-hit-item:hover {
+  background: rgba(120, 120, 128, 0.08) !important;
+  transform: translateX(4px);
+}
+
+[data-theme="dark"] #local-search .local-search-hit-item:hover {
+  background: rgba(120, 120, 128, 0.15) !important;
+}
+
+/* 圆点指示器优化 */
+#local-search .local-search-hit-item:before {
+  top: 16px !important;
+  left: 10px !important;
+  width: 6px !important;
+  height: 6px !important;
+  border: none !important;
+  background: rgba(0, 122, 255, 0.6) !important;
+  border-radius: 50% !important;
+  transition: all 0.2s ease !important;
+}
+
+#local-search .local-search-hit-item:hover:before {
+  background: rgba(0, 122, 255, 1) !important;
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(0, 122, 255, 0.4);
+}
+
+/* 链接样式 */
+#local-search .local-search-hit-item a {
+  color: var(--font-color) !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+#local-search .local-search-hit-item a:hover {
+  color: rgba(0, 122, 255, 1) !important;
+}
+
+/* 标题样式 */
+#local-search .local-search-hit-item .search-result-title {
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  margin-bottom: 4px !important;
+  letter-spacing: -0.2px;
+  color: var(--font-color) !important;
+}
+
+/* 搜索结果内容 */
+#local-search .local-search-hit-item .search-result {
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: var(--font-color) !important;
+  opacity: 0.7;
+}
+
+/* 关键词高亮 - 苹果风格 */
+.search-keyword {
+  background: rgba(255, 204, 0, 0.3) !important;
+  color: var(--font-color) !important;
+  padding: 2px 4px !important;
+  border-radius: 3px !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="dark"] .search-keyword {
+  background: rgba(255, 214, 10, 0.25) !important;
+}
+
+/* 分割线优化 */
+.search-dialog hr {
+  border: none !important;
+  height: 1px !important;
+  background: rgba(120, 120, 128, 0.2) !important;
+  margin: 20px 0 !important;
+}
+
+/* 搜索遮罩优化 */
+#search-mask {
+  background: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] #search-mask {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+  .search-dialog {
+    border-radius: 0 !important;
+    padding: 20px !important;
+  }
+
+  #local-search .search-result-list {
+    max-height: calc(100vh - 200px) !important;
+  }
+}
+
+/* 平滑过渡动画 */
+.search-dialog,
+#search-mask {
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

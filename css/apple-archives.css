@@ -1,0 +1,317 @@
+/* Apple-style Modern Archives Timeline - 苹果风格现代时间轴 */
+
+/* 时间轴主容器优化 */
+.article-sort {
+  margin-left: 20px !important;
+  padding-left: 30px !important;
+  border-left: 2px solid rgba(120, 120, 128, 0.2) !important;
+  position: relative;
+}
+
+/* 年份标题优化 - 苹果风格 */
+.article-sort-title {
+  position: relative;
+  margin-left: 0 !important;
+  margin-bottom: 30px !important;
+  padding: 16px 24px !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+  color: var(--font-color) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 122, 255, 0.08),
+    rgba(88, 86, 214, 0.08)
+  ) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 122, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.08);
+}
+
+.article-sort-title:hover {
+  transform: translateY(-2px) translateX(4px);
+  box-shadow: 0 8px 24px rgba(0, 122, 255, 0.15);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 122, 255, 0.12),
+    rgba(88, 86, 214, 0.12)
+  ) !important;
+}
+
+[data-theme="dark"] .article-sort-title {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 122, 255, 0.15),
+    rgba(88, 86, 214, 0.15)
+  ) !important;
+  border: 1px solid rgba(0, 122, 255, 0.2);
+}
+/* 年份圆点 - 更大更精致 */
+.article-sort-title:before {
+  position: absolute !important;
+  top: 50% !important;
+  left: -26px !important;
+  transform: translateY(-50%);
+  width: 16px !important;
+  height: 16px !important;
+  border: 4px solid rgba(0, 122, 255, 1) !important;
+  border-radius: 50% !important;
+  background: var(--card-bg) !important;
+  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.15),
+    0 4px 12px rgba(0, 122, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  z-index: 2;
+}
+
+.article-sort-title:hover:before {
+  border-color: rgba(0, 122, 255, 1) !important;
+  box-shadow: 0 0 0 6px rgba(0, 122, 255, 0.2),
+    0 6px 20px rgba(0, 122, 255, 0.4);
+  transform: translateY(-50%) scale(1.2);
+}
+
+/* 移除年份标题的底部连接线 */
+.article-sort-title:after {
+  display: none !important;
+}
+/* 文章项容器优化 */
+.article-sort-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 0 16px 0 !important;
+  padding: 16px 20px !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .article-sort-item {
+  background: rgba(40, 40, 40, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.article-sort-item:hover {
+  transform: translateX(8px);
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(0, 122, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 122, 255, 0.12);
+}
+
+[data-theme="dark"] .article-sort-item:hover {
+  background: rgba(50, 50, 50, 0.8) !important;
+  border-color: rgba(0, 122, 255, 0.3);
+}
+
+/* 文章圆点优化 - 精致小圆点 */
+.article-sort-item:before {
+  position: absolute !important;
+  left: -41px !important;
+  width: 10px !important;
+  height: 10px !important;
+  border: 3px solid rgba(0, 122, 255, 0.6) !important;
+  border-radius: 50% !important;
+  background: var(--card-bg) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.article-sort-item:hover:before {
+  border-color: rgba(0, 122, 255, 1) !important;
+  box-shadow: 0 0 0 5px rgba(0, 122, 255, 0.2), 0 2px 8px rgba(0, 122, 255, 0.3);
+  transform: scale(1.3);
+}
+
+/* 年份特殊样式 */
+.article-sort-item.year {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-bottom: 24px !important;
+}
+
+.article-sort-item.year:hover {
+  transform: none;
+  background: transparent !important;
+}
+
+.article-sort-item.year:before {
+  display: none !important;
+}
+
+/* 时间标签优化 - 苹果风格徽章 */
+.article-sort-item-time {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px !important;
+  background: rgba(120, 120, 128, 0.12) !important;
+  border-radius: 8px !important;
+  color: rgba(60, 60, 67, 0.85) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.1px;
+  margin-right: 12px;
+  min-width: 90px;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .article-sort-item-time {
+  background: rgba(120, 120, 128, 0.24) !important;
+  color: rgba(235, 235, 245, 0.85) !important;
+}
+
+.article-sort-item:hover .article-sort-item-time {
+  background: rgba(0, 122, 255, 0.15) !important;
+  color: rgba(0, 122, 255, 1) !important;
+  transform: scale(1.05);
+}
+
+.article-sort-item-time time {
+  padding-left: 0 !important;
+}
+
+/* 文章标题优化 */
+.article-sort-item-title {
+  flex: 1;
+  color: var(--font-color) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.2px;
+  line-height: 1.5 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.article-sort-item-title:hover {
+  color: rgba(0, 122, 255, 1) !important;
+  transform: translateX(0) !important;
+}
+
+/* 文章封面图隐藏 */
+.article-sort-item-img {
+  display: none !important;
+}
+
+/* 无封面文章优化 */
+.article-sort-item.no-article-cover {
+  height: auto !important;
+  min-height: 68px;
+}
+
+.article-sort-item.no-article-cover .article-sort-item-info {
+  padding: 0 !important;
+}
+
+/* 文章信息区域 */
+.article-sort-item-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 !important;
+}
+
+/* 响应式优化 */
+@media screen and (max-width: 768px) {
+  .article-sort {
+    margin-left: 10px !important;
+    padding-left: 20px !important;
+  }
+
+  .article-sort-title {
+    font-size: 22px !important;
+    padding: 12px 16px !important;
+    margin-left: 0 !important;
+  }
+
+  .article-sort-title:before {
+    left: -36px !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-width: 3px !important;
+  }
+
+  .article-sort-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+    padding: 12px 16px !important;
+  }
+
+  .article-sort-item-info {
+    flex-direction: column;
+    align-items: flex-start !important;
+    width: 100%;
+  }
+
+  .article-sort-item-time {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}
+
+/* 平滑滚动优化 */
+.article-sort {
+  scroll-behavior: smooth;
+}
+
+/* 时间轴渐变效果 */
+.article-sort:before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 122, 255, 0.3),
+    rgba(88, 86, 214, 0.3),
+    rgba(0, 122, 255, 0.3)
+  );
+  opacity: 0.6;
+}
+
+/* 添加微妙的进入动画 */
+.article-sort-item {
+  animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 年份标题动画延迟 */
+.article-sort-title {
+  animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
