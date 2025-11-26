@@ -237,20 +237,6 @@
   </url>
   
   <url>
-    <loc>https://chuhsing.com/tags/html5/</loc>
-    <lastmod>2025-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/semantic-tagging/</loc>
-    <lastmod>2025-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chuhsing.com/tags/storage/</loc>
     <lastmod>2025-11-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -419,27 +405,6 @@
   </url>
   
   <url>
-    <loc>https://chuhsing.com/tags/frontend/</loc>
-    <lastmod>2025-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/vue/</loc>
-    <lastmod>2025-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chuhsing.com/tags/element-plus/</loc>
-    <lastmod>2025-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chuhsing.com/tags/Web-Security/</loc>
     <lastmod>2025-11-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -518,6 +483,41 @@
   
   <url>
     <loc>https://chuhsing.com/tags/caddy/</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/frontend/</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/vue/</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/element-plus/</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/html5/</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/tags/semantic-tagging/</loc>
     <lastmod>2025-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -631,13 +631,6 @@
   </url>
   
   <url>
-    <loc>https://chuhsing.com/categories/Programming/Notes/</loc>
-    <lastmod>2025-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chuhsing.com/categories/Web-Security/</loc>
     <lastmod>2025-11-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -646,6 +639,13 @@
   
   <url>
     <loc>https://chuhsing.com/categories/Deployment/</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chuhsing.com/categories/Programming/Notes/</loc>
     <lastmod>2025-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
